@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using First_HomeWork___Draw_a_Cube;
 using OpenTK.Graphics.OpenGL4;
 using OpenTK.Mathematics;
 
-namespace First_HomeWork___Draw_a_Cube
+namespace Second_Homework_Draw_a_Computer
 {
     public class Poligono
     {
         public List<Punto> Puntos { get; set; }
         public List<uint> Indices { get; set; }
         public Vector3 Color { get; set; } = new Vector3(0, 1, 0); // Verde por defecto
+
+        public Vector3 centroMasa { get; set; } = default;
 
         public Poligono()
         {
@@ -34,7 +35,7 @@ namespace First_HomeWork___Draw_a_Cube
             Indices.AddRange(indices);
         }
 
-        public float[] GetVerticesArray(Vector3 centroMasa = default)
+        public float[] GetVerticesArray()
         {
             List<float> vertices = new List<float>();
 
@@ -48,11 +49,11 @@ namespace First_HomeWork___Draw_a_Cube
             return vertices.ToArray();
         }
 
-        public void Dibujar(Vector3 centroMasa = default)
+        public void Dibujar()
         {
             if (Puntos.Count < 3 || Indices.Count < 3) return; // Necesita al menos 3 puntos e índices
 
-            float[] vertices = GetVerticesArray(centroMasa);
+            float[] vertices = GetVerticesArray();
 
             // Generar buffers
             int vao = GL.GenVertexArray();

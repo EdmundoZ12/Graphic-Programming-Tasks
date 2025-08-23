@@ -8,17 +8,17 @@ using OpenTK.Windowing.GraphicsLibraryFramework;
 using OpenTK.Mathematics;
 using OpenTK.Windowing.Common;
 using OpenTK.Graphics.OpenGL4;
-using First_HomeWork___Draw_a_Cube;
+using Second_Homework_Draw_a_Computer.Componentes;
 
-namespace First_HomeWork___Draw_a_Cube
+namespace Second_Homework_Draw_a_Computer
 {
     internal class Game : GameWindow
     {
         // Render Pipeline vars
         int shaderProgram;
 
-        // Figura
-        Parte cubo;
+        // Escenario
+        Escenario escena;
 
         // Variables de transformación
         Matrix4 model = Matrix4.Identity;
@@ -120,79 +120,25 @@ namespace First_HomeWork___Draw_a_Cube
             // Deshabilitar backface culling para ver todas las caras
             GL.Disable(EnableCap.CullFace);
 
-            // Crear el cubo usando nuestras clases
-            CrearCubo();
+            // Crear el escenario usando nuestras clases
+            CrearEscena();
         }
 
-        private void CrearCubo()
+        private void CrearEscena()
         {
-            cubo = new Parte();
+            escena = new Escenario();
 
-            // Crear cara frontal - ROJO (solo 4 puntos únicos)
-            Poligono caraFrontal = new Poligono();
-            caraFrontal.Color = new Vector3(1.0f, 0.0f, 0.0f); // Rojo
-            caraFrontal.AgregarPunto(new Punto(-0.5f, 0.5f, 0.5f));   // 0: arriba izq
-            caraFrontal.AgregarPunto(new Punto(0.5f, 0.5f, 0.5f));    // 1: arriba der
-            caraFrontal.AgregarPunto(new Punto(-0.5f, -0.5f, 0.5f));  // 2: abajo izq
-            caraFrontal.AgregarPunto(new Punto(0.5f, -0.5f, 0.5f));   // 3: abajo der
-            caraFrontal.SetIndices(0, 1, 2,  // Triángulo 1
-                                   1, 3, 2); // Triángulo 2
-            cubo.AgregarPoligono("caraFrontal", caraFrontal);
+            escena.centroMasa=new Vector3(0.5f, 0.5f, 0.5f);
 
-            // Crear cara trasera - AZUL
-            Poligono caraTrasera = new Poligono();
-            caraTrasera.Color = new Vector3(0.0f, 0.0f, 1.0f); // Azul
-            caraTrasera.AgregarPunto(new Punto(0.5f, 0.5f, -0.5f));   // 0: arriba der
-            caraTrasera.AgregarPunto(new Punto(-0.5f, 0.5f, -0.5f));  // 1: arriba izq
-            caraTrasera.AgregarPunto(new Punto(0.5f, -0.5f, -0.5f));  // 2: abajo der
-            caraTrasera.AgregarPunto(new Punto(-0.5f, -0.5f, -0.5f)); // 3: abajo izq
-            caraTrasera.SetIndices(0, 1, 2,  // Triángulo 1
-                                   1, 3, 2); // Triángulo 2
-            cubo.AgregarPoligono("caraTrasera", caraTrasera);
+            MonitorPC monitorComponent = new MonitorPC();
+            escena.AgregarObjeto("monitor", monitorComponent.ObtenerObjeto());
 
-            // Crear cara izquierda - VERDE
-            Poligono caraIzquierda = new Poligono();
-            caraIzquierda.Color = new Vector3(0.0f, 1.0f, 0.0f); // Verde
-            caraIzquierda.AgregarPunto(new Punto(-0.5f, 0.5f, -0.5f)); // 0: arriba tras
-            caraIzquierda.AgregarPunto(new Punto(-0.5f, 0.5f, 0.5f));  // 1: arriba front
-            caraIzquierda.AgregarPunto(new Punto(-0.5f, -0.5f, -0.5f)); // 2: abajo tras
-            caraIzquierda.AgregarPunto(new Punto(-0.5f, -0.5f, 0.5f)); // 3: abajo front
-            caraIzquierda.SetIndices(0, 1, 2,  // Triángulo 1
-                                     1, 3, 2); // Triángulo 2
-            cubo.AgregarPoligono("caraIzquierda", caraIzquierda);
+            CPU cpu = new CPU();
+            escena.AgregarObjeto("CPU", cpu.ObtenerObjeto());
 
-            // Crear cara derecha - AMARILLO
-            Poligono caraDerecha = new Poligono();
-            caraDerecha.Color = new Vector3(1.0f, 1.0f, 0.0f); // Amarillo
-            caraDerecha.AgregarPunto(new Punto(0.5f, 0.5f, 0.5f));   // 0: arriba front
-            caraDerecha.AgregarPunto(new Punto(0.5f, 0.5f, -0.5f));  // 1: arriba tras
-            caraDerecha.AgregarPunto(new Punto(0.5f, -0.5f, 0.5f));  // 2: abajo front
-            caraDerecha.AgregarPunto(new Punto(0.5f, -0.5f, -0.5f)); // 3: abajo tras
-            caraDerecha.SetIndices(0, 1, 2,  // Triángulo 1
-                                   1, 3, 2); // Triángulo 2
-            cubo.AgregarPoligono("caraDerecha", caraDerecha);
+            Teclado tecladoComponent = new Teclado();
+            escena.AgregarObjeto("teclado", tecladoComponent.ObtenerObjeto());
 
-            // Crear cara superior - MAGENTA
-            Poligono caraSuperior = new Poligono();
-            caraSuperior.Color = new Vector3(1.0f, 0.0f, 1.0f); // Magenta
-            caraSuperior.AgregarPunto(new Punto(-0.5f, 0.5f, -0.5f)); // 0: izq tras
-            caraSuperior.AgregarPunto(new Punto(0.5f, 0.5f, -0.5f));  // 1: der tras
-            caraSuperior.AgregarPunto(new Punto(-0.5f, 0.5f, 0.5f));  // 2: izq front
-            caraSuperior.AgregarPunto(new Punto(0.5f, 0.5f, 0.5f));   // 3: der front
-            caraSuperior.SetIndices(0, 1, 2,  // Triángulo 1
-                                    1, 3, 2); // Triángulo 2
-            cubo.AgregarPoligono("caraSuperior", caraSuperior);
-
-            // Crear cara inferior - CIAN
-            Poligono caraInferior = new Poligono();
-            caraInferior.Color = new Vector3(0.0f, 1.0f, 1.0f); // Cian
-            caraInferior.AgregarPunto(new Punto(-0.5f, -0.5f, 0.5f));  // 0: izq front
-            caraInferior.AgregarPunto(new Punto(0.5f, -0.5f, 0.5f));   // 1: der front
-            caraInferior.AgregarPunto(new Punto(-0.5f, -0.5f, -0.5f)); // 2: izq tras
-            caraInferior.AgregarPunto(new Punto(0.5f, -0.5f, -0.5f));  // 3: der tras
-            caraInferior.SetIndices(0, 1, 2,  // Triángulo 1
-                                    1, 3, 2); // Triángulo 2
-            cubo.AgregarPoligono("caraInferior", caraInferior);
         }
 
         protected override void OnUnload()
@@ -221,7 +167,7 @@ namespace First_HomeWork___Draw_a_Cube
             GL.UniformMatrix4(viewLoc, false, ref view);
             GL.UniformMatrix4(projLoc, false, ref projection);
 
-            cubo.Dibujar();
+            escena.Dibujar();
 
             Context.SwapBuffers();
             base.OnRenderFrame(args);
