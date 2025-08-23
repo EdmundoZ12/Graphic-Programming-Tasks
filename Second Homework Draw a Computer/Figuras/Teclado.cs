@@ -24,12 +24,12 @@ namespace Second_Homework_Draw_a_Computer.Componentes
 
         private void CrearTeclado()
         {
-            // Crear base del teclado
+            // Base del teclado
             Parte baseTeclado = new Parte();
             CrearBase(baseTeclado);
             teclado.AgregarParte("baseTeclado", baseTeclado);
 
-            // Crear teclas
+            // Teclas
             Parte teclas = new Parte();
             CrearTeclas(teclas);
             teclado.AgregarParte("teclas", teclas);
@@ -39,7 +39,7 @@ namespace Second_Homework_Draw_a_Computer.Componentes
         {
             // Cara superior (donde van las teclas)
             Poligono caraSuperior = new Poligono();
-            caraSuperior.Color = new Vector3(0.2f, 0.2f, 0.2f); // Gris oscuro
+            caraSuperior.Color = new Vector3(0.2f, 0.2f, 0.2f); 
             caraSuperior.AgregarPunto(new Punto(-0.5f, -0.4f, 0.4f));  // izq front
             caraSuperior.AgregarPunto(new Punto(0.5f, -0.4f, 0.4f));   // der front
             caraSuperior.AgregarPunto(new Punto(-0.5f, -0.4f, 0.05f)); // izq tras
@@ -49,7 +49,7 @@ namespace Second_Homework_Draw_a_Computer.Componentes
 
             // Cara inferior
             Poligono caraInferior = new Poligono();
-            caraInferior.Color = new Vector3(0.15f, 0.15f, 0.15f); // Más oscuro
+            caraInferior.Color = new Vector3(0.15f, 0.15f, 0.15f); 
             caraInferior.AgregarPunto(new Punto(-0.5f, -0.45f, 0.4f));  // izq front
             caraInferior.AgregarPunto(new Punto(0.5f, -0.45f, 0.4f));   // der front
             caraInferior.AgregarPunto(new Punto(-0.5f, -0.45f, 0.05f)); // izq tras
@@ -59,7 +59,7 @@ namespace Second_Homework_Draw_a_Computer.Componentes
 
             // Cara frontal
             Poligono caraFrontal = new Poligono();
-            caraFrontal.Color = new Vector3(0.18f, 0.18f, 0.18f); // Gris medio
+            caraFrontal.Color = new Vector3(0.18f, 0.18f, 0.18f); 
             caraFrontal.AgregarPunto(new Punto(-0.5f, -0.4f, 0.4f));  // arriba izq
             caraFrontal.AgregarPunto(new Punto(0.5f, -0.4f, 0.4f));   // arriba der
             caraFrontal.AgregarPunto(new Punto(-0.5f, -0.45f, 0.4f)); // abajo izq
@@ -69,7 +69,7 @@ namespace Second_Homework_Draw_a_Computer.Componentes
 
             // Cara trasera
             Poligono caraTrasera = new Poligono();
-            caraTrasera.Color = new Vector3(0.18f, 0.18f, 0.18f); // Gris medio
+            caraTrasera.Color = new Vector3(0.18f, 0.18f, 0.18f); 
             caraTrasera.AgregarPunto(new Punto(0.5f, -0.4f, 0.05f));   // arriba der
             caraTrasera.AgregarPunto(new Punto(-0.5f, -0.4f, 0.05f));  // arriba izq
             caraTrasera.AgregarPunto(new Punto(0.5f, -0.45f, 0.05f));  // abajo der

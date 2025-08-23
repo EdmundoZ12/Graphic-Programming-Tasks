@@ -9,7 +9,7 @@ namespace Second_Homework_Draw_a_Computer
     {
         public List<Punto> Puntos { get; set; }
         public List<uint> Indices { get; set; }
-        public Vector3 Color { get; set; } = new Vector3(0, 1, 0); // Verde por defecto
+        public Vector3 Color { get; set; } = new Vector3(0, 1, 0); // Verde
 
         public Vector3 centroMasa { get; set; } = default;
 

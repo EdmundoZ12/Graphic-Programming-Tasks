@@ -128,7 +128,7 @@ namespace Second_Homework_Draw_a_Computer
         {
             escena = new Escenario();
 
-            escena.centroMasa=new Vector3(0.5f, 0.5f, 0.5f);
+            //escena.centroMasa=new Vector3(0.5f, 0.5f, 0.5f);
 
             MonitorPC monitorComponent = new MonitorPC();
             escena.AgregarObjeto("monitor", monitorComponent.ObtenerObjeto());
@@ -200,7 +200,6 @@ namespace Second_Homework_Draw_a_Computer
                 rotationY += deltaPos.X * sensitivity;
                 rotationX += deltaPos.Y * sensitivity;
 
-                // Sin límites de rotación - libertad total
             }
 
             base.OnMouseMove(e);
