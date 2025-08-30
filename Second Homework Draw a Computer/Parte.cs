@@ -17,7 +17,7 @@ namespace Second_Homework_Draw_a_Computer
 
         public void AgregarPoligono(string clave, Poligono poligono)
         {
-            Poligonos[clave] = poligono;
+            Poligonos[clave] = poligono;//Arreglar con Add
         }
 
         public void Dibujar()

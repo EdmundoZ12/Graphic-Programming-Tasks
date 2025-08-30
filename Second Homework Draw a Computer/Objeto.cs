@@ -9,10 +9,12 @@ namespace Second_Homework_Draw_a_Computer
 {
     public class Objeto
     {
+        // Implementar  interface Dibujar(), Rotar,Trasladar.
+
         public Dictionary<string, Parte> Partes { get; set; }
 
         public Vector3 centroMasa { get; set; } = default;
-
+        //Cambiar a clase Punto
         public Objeto()
         {
             Partes = new Dictionary<string, Parte>();
@@ -20,7 +22,7 @@ namespace Second_Homework_Draw_a_Computer
 
         public void AgregarParte(string clave, Parte parte)
         {
-            Partes[clave] = parte;
+            Partes.Add(clave, parte);
         }
 
         public void Dibujar()

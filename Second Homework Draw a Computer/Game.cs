@@ -17,9 +17,6 @@ namespace Second_Homework_Draw_a_Computer
         // Render Pipeline vars
         int shaderProgram;
 
-        // Escenario
-        Escenario escena;
-
         // Variables de transformación
         Matrix4 model = Matrix4.Identity;
         Matrix4 view = Matrix4.Identity;
@@ -32,6 +29,8 @@ namespace Second_Homework_Draw_a_Computer
         bool firstMouse = true;
         bool isMousePressed = false;
         float sensitivity = 0.002f;
+
+        Objeto monitor, gabinete, keyboard;
 
         // CONSTANTS
         int height, width;
@@ -120,24 +119,21 @@ namespace Second_Homework_Draw_a_Computer
             // Deshabilitar backface culling para ver todas las caras
             GL.Disable(EnableCap.CullFace);
 
-            // Crear el escenario usando nuestras clases
-            CrearEscena();
+            // Cargar Objetos
+            CargarObjetos();
         }
 
-        private void CrearEscena()
+        private void CargarObjetos()
         {
-            escena = new Escenario();
 
-            //escena.centroMasa=new Vector3(0.5f, 0.5f, 0.5f);
+            monitor = new MonitorPC().ObtenerObjeto();
 
-            MonitorPC monitorComponent = new MonitorPC();
-            escena.AgregarObjeto("monitor", monitorComponent.ObtenerObjeto());
+            //monitor.centroMasa = new Vector3(1f, 0, 0);
 
-            CPU cpu = new CPU();
-            escena.AgregarObjeto("CPU", cpu.ObtenerObjeto());
+            keyboard = new Teclado().ObtenerObjeto();
 
-            Teclado tecladoComponent = new Teclado();
-            escena.AgregarObjeto("teclado", tecladoComponent.ObtenerObjeto());
+            gabinete = new CPU().ObtenerObjeto();
+
 
         }
 
@@ -162,12 +158,17 @@ namespace Second_Homework_Draw_a_Computer
             int modelLoc = GL.GetUniformLocation(shaderProgram, "model");
             int viewLoc = GL.GetUniformLocation(shaderProgram, "view");
             int projLoc = GL.GetUniformLocation(shaderProgram, "projection");
+            //MOVER AL ONLOAD();
+
 
             GL.UniformMatrix4(modelLoc, false, ref model);
             GL.UniformMatrix4(viewLoc, false, ref view);
             GL.UniformMatrix4(projLoc, false, ref projection);
 
-            escena.Dibujar();
+            monitor.Dibujar();
+            //monitor.Partes["pantalla"].Dibujar();
+            gabinete.Dibujar();
+            keyboard.Dibujar();
 
             Context.SwapBuffers();
             base.OnRenderFrame(args);
