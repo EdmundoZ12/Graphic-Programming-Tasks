@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OpenTK.Mathematics;
-using Second_Homework_Draw_a_Computer; // AGREGAR ESTA LÍNEA
+using Second_Homework_Draw_a_Computer;
 
 namespace Second_Homework_Draw_a_Computer.Componentes
 {
