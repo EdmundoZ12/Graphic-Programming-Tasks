@@ -13,7 +13,7 @@ namespace Second_Homework_Draw_a_Computer
 
         public Dictionary<string, Parte> Partes { get; set; }
 
-        public Vector3 centroMasa { get; set; } = default;
+        public Punto centroMasa { get; set; } = new Punto(0, 0, 0);
         //Cambiar a clase Punto
         public Objeto()
         {
@@ -23,6 +23,11 @@ namespace Second_Homework_Draw_a_Computer
         public void AgregarParte(string clave, Parte parte)
         {
             Partes.Add(clave, parte);
+        }
+
+        public void EliminarParte(String clave)
+        {
+            Partes.Remove(clave);
         }
 
         public void Dibujar()

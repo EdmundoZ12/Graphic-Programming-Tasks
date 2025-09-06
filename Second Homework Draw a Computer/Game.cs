@@ -121,18 +121,31 @@ namespace Second_Homework_Draw_a_Computer
 
             // Cargar Objetos
             CargarObjetos();
+            //monitor = new MonitorPC().ObtenerObjeto();
+            //gabinete = new CPU().ObtenerObjeto();
+            //keyboard = new Teclado().ObtenerObjeto();
+            //Serializar.GuardarComoJson(monitor, "monitor.json");
+            //Serializar.GuardarComoJson(gabinete, "cpu.json");
+            //Serializar.GuardarComoJson(keyboard, "teclado.json");
+
+
+
         }
 
         private void CargarObjetos()
         {
 
-            monitor = new MonitorPC().ObtenerObjeto();
+            //monitor = new MonitorPC().ObtenerObjeto();
 
             //monitor.centroMasa = new Vector3(1f, 0, 0);
 
-            keyboard = new Teclado().ObtenerObjeto();
+            //keyboard = new Teclado().ObtenerObjeto();
 
-            gabinete = new CPU().ObtenerObjeto();
+            //gabinete = new CPU().ObtenerObjeto();
+
+            monitor = Serializar.CargarDesdeJson<Objeto>("monitor.json");
+            gabinete = Serializar.CargarDesdeJson<Objeto>("cpu.json");
+            keyboard = Serializar.CargarDesdeJson<Objeto>("teclado.json");
 
 
         }

@@ -40,7 +40,7 @@ namespace Second_Homework_Draw_a_Computer.Componentes
         {
             // Cara trasera (negra)
             Poligono caraTrasera = new Poligono();
-            caraTrasera.Color = new Vector3(0.1f, 0.1f, 0.1f);
+            caraTrasera.Color = new Punto(0.1f, 0.1f, 0.1f);
             caraTrasera.AgregarPunto(new Punto(-0.4f, 0.3f, -0.03f));  // arriba izq
             caraTrasera.AgregarPunto(new Punto(0.4f, 0.3f, -0.03f));   // arriba der
             caraTrasera.AgregarPunto(new Punto(-0.4f, -0.3f, -0.03f)); // abajo izq
@@ -50,7 +50,7 @@ namespace Second_Homework_Draw_a_Computer.Componentes
 
             // Cara frontal (pantalla blanca)
             Poligono caraFrontal = new Poligono();
-            caraFrontal.Color = new Vector3(1f, 1f, 1f);
+            caraFrontal.Color = new Punto(1f, 1f, 1f);
             caraFrontal.AgregarPunto(new Punto(-0.35f, 0.25f, 0.03f));   // arriba izq
             caraFrontal.AgregarPunto(new Punto(0.35f, 0.25f, 0.03f));    // arriba der
             caraFrontal.AgregarPunto(new Punto(-0.35f, -0.25f, 0.03f));  // abajo izq
@@ -60,7 +60,7 @@ namespace Second_Homework_Draw_a_Computer.Componentes
 
             // Marco superior
             Poligono marcoSuperior = new Poligono();
-            marcoSuperior.Color = new Vector3(0.2f, 0.2f, 0.2f); 
+            marcoSuperior.Color = new Punto(0.2f, 0.2f, 0.2f); 
             marcoSuperior.AgregarPunto(new Punto(-0.4f, 0.3f, -0.03f)); // tras izq
             marcoSuperior.AgregarPunto(new Punto(0.4f, 0.3f, -0.03f));  // tras der
             marcoSuperior.AgregarPunto(new Punto(-0.35f, 0.25f, 0.03f));  // front izq
@@ -70,7 +70,7 @@ namespace Second_Homework_Draw_a_Computer.Componentes
 
             // Marco inferior
             Poligono marcoInferior = new Poligono();
-            marcoInferior.Color = new Vector3(0.2f, 0.2f, 0.2f); 
+            marcoInferior.Color = new Punto(0.2f, 0.2f, 0.2f); 
             marcoInferior.AgregarPunto(new Punto(-0.35f, -0.25f, 0.03f)); // front izq
             marcoInferior.AgregarPunto(new Punto(0.35f, -0.25f, 0.03f));  // front der
             marcoInferior.AgregarPunto(new Punto(-0.4f, -0.3f, -0.03f)); // tras izq
@@ -80,7 +80,7 @@ namespace Second_Homework_Draw_a_Computer.Componentes
 
             // Marco izquierdo
             Poligono marcoIzquierdo = new Poligono();
-            marcoIzquierdo.Color = new Vector3(0.2f, 0.2f, 0.2f);
+            marcoIzquierdo.Color = new Punto(0.2f, 0.2f, 0.2f);
             marcoIzquierdo.AgregarPunto(new Punto(-0.4f, 0.3f, -0.03f)); // tras arriba
             marcoIzquierdo.AgregarPunto(new Punto(-0.35f, 0.25f, 0.03f));  // front arriba
             marcoIzquierdo.AgregarPunto(new Punto(-0.4f, -0.3f, -0.03f)); // tras abajo
@@ -90,7 +90,7 @@ namespace Second_Homework_Draw_a_Computer.Componentes
 
             // Marco derecho
             Poligono marcoDerecho = new Poligono();
-            marcoDerecho.Color = new Vector3(0.2f, 0.2f, 0.2f); 
+            marcoDerecho.Color = new Punto(0.2f, 0.2f, 0.2f); 
             marcoDerecho.AgregarPunto(new Punto(0.35f, 0.25f, 0.03f));  // front arriba
             marcoDerecho.AgregarPunto(new Punto(0.4f, 0.3f, -0.03f)); // tras arriba
             marcoDerecho.AgregarPunto(new Punto(0.35f, -0.25f, 0.03f)); // front abajo
@@ -103,7 +103,7 @@ namespace Second_Homework_Draw_a_Computer.Componentes
         {
             // Base superior 
             Poligono baseSuperior = new Poligono();
-            baseSuperior.Color = new Vector3(0.3f, 0.3f, 0.3f);
+            baseSuperior.Color = new Punto(0.3f, 0.3f, 0.3f);
             baseSuperior.AgregarPunto(new Punto(-0.15f, -0.3f, 0.1f));
             baseSuperior.AgregarPunto(new Punto(0.15f, -0.3f, 0.1f));
             baseSuperior.AgregarPunto(new Punto(-0.15f, -0.3f, -0.1f));
@@ -113,7 +113,7 @@ namespace Second_Homework_Draw_a_Computer.Componentes
 
             // Base inferior
             Poligono baseInferior = new Poligono();
-            baseInferior.Color = new Vector3(0.25f, 0.25f, 0.25f);
+            baseInferior.Color = new Punto(0.25f, 0.25f, 0.25f);
             baseInferior.AgregarPunto(new Punto(-0.15f, -0.35f, 0.1f));
             baseInferior.AgregarPunto(new Punto(0.15f, -0.35f, 0.1f));
             baseInferior.AgregarPunto(new Punto(-0.15f, -0.35f, -0.1f));
@@ -123,7 +123,7 @@ namespace Second_Homework_Draw_a_Computer.Componentes
 
             // Frente de la base
             Poligono baseFrente = new Poligono();
-            baseFrente.Color = new Vector3(0.28f, 0.28f, 0.28f);
+            baseFrente.Color = new Punto(0.28f, 0.28f, 0.28f);
             baseFrente.AgregarPunto(new Punto(-0.15f, -0.3f, 0.1f));
             baseFrente.AgregarPunto(new Punto(0.15f, -0.3f, 0.1f));
             baseFrente.AgregarPunto(new Punto(-0.15f, -0.35f, 0.1f));
@@ -133,7 +133,7 @@ namespace Second_Homework_Draw_a_Computer.Componentes
 
             // Frente de la base
             Poligono baseTrasera = new Poligono();
-            baseTrasera.Color = new Vector3(0.28f, 0.28f, 0.28f);
+            baseTrasera.Color = new Punto(0.28f, 0.28f, 0.28f);
             baseTrasera.AgregarPunto(new Punto(-0.15f, -0.3f, -0.1f));
             baseTrasera.AgregarPunto(new Punto(0.15f, -0.3f, -0.1f));
             baseTrasera.AgregarPunto(new Punto(-0.15f, -0.35f, -0.1f));

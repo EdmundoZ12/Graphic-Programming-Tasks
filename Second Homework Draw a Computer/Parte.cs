@@ -8,7 +8,7 @@ namespace Second_Homework_Draw_a_Computer
     public class Parte
     {
         public Dictionary<string, Poligono> Poligonos { get; set; }
-        public Vector3 centroMasa { get; set; } = default;
+        public Punto centroMasa { get; set; } = new Punto(0, 0, 0);
 
         public Parte()
         {
@@ -17,7 +17,7 @@ namespace Second_Homework_Draw_a_Computer
 
         public void AgregarPoligono(string clave, Poligono poligono)
         {
-            Poligonos[clave] = poligono;//Arreglar con Add
+            Poligonos.Add(clave, poligono);
         }
 
         public void Dibujar()

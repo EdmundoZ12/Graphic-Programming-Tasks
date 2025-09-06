@@ -9,9 +9,9 @@ namespace Second_Homework_Draw_a_Computer
     {
         public List<Punto> Puntos { get; set; }
         public List<uint> Indices { get; set; }
-        public Vector3 Color { get; set; } = new Vector3(0, 1, 0); // Verde
+        public Punto Color { get; set; } = new Punto(0, 1, 0); // Verde
 
-        public Vector3 centroMasa { get; set; } = default;
+        public Punto centroMasa { get; set; } = new Punto(0, 0, 0);
 
         public Poligono()
         {
@@ -76,7 +76,7 @@ namespace Second_Homework_Draw_a_Computer
 
             // Enviar color al shader
             int colorLocation = GL.GetUniformLocation(GL.GetInteger(GetPName.CurrentProgram), "color");
-            GL.Uniform3(colorLocation, Color);
+            GL.Uniform3(colorLocation, Color.X, Color.Y, Color.Z);
 
             // Dibujar usando índices
             GL.DrawElements(PrimitiveType.Triangles, Indices.Count, DrawElementsType.UnsignedInt, 0);
